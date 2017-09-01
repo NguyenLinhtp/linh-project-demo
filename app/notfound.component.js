@@ -7,16 +7,16 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var NotFountComponent = (function () {
-    function NotFountComponent() {
+var NotFoundComponent = (function () {
+    function NotFoundComponent() {
     }
-    NotFountComponent = __decorate([
+    NotFoundComponent = __decorate([
         core_1.Component({
-            selector: 'not-fount',
-            template: '<h1>Error 404</h1>',
+            selector: 'not-found-component',
+            template: "<h2>404 Error</h2>"
         })
-    ], NotFountComponent);
-    return NotFountComponent;
+    ], NotFoundComponent);
+    return NotFoundComponent;
 }());
-exports.NotFountComponent = NotFountComponent;
-//# sourceMappingURL=notfount.component.js.map
+exports.NotFoundComponent = NotFoundComponent;
+//# sourceMappingURL=notfound.component.js.map

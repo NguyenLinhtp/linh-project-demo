@@ -1,11 +1,21 @@
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home.component';
 import { EmployeeListComponent } from './employee.component';
-import {NotFountComponent} from './notfount.component';
+import { EmployeeDetailComponent } from './employee-detail.component'
+import { NotFoundComponent } from './notfound.component';
+import { EmployeeOverviewComponent } from './employee-overview.component'
+import { EmployeeProjectsComponent } from './employee-projects.component'
 const routing: Routes = [
-    // tu dong chuyen trang nay sang trang khac khi khong co redirecTo: 
-    { path: '', component:HomeComponent},
+    { path: '', component: HomeComponent },
     { path: 'employees', component: EmployeeListComponent },
-    { path: '**', component: NotFountComponent }
+    {
+        path: 'employee-detail/:id', component: EmployeeDetailComponent, 
+        children: [
+            { path: '', redirectTo: 'overview', pathMatch: 'full' },
+            { path: 'overview', component: EmployeeOverviewComponent },
+            { path: 'projects', component: EmployeeProjectsComponent }
+        ]
+    },
+    { path: '**', component: NotFoundComponent }
 ]
-export const appRoutes  = RouterModule.forRoot(routing);
+export const appRoutes = RouterModule.forRoot(routing);

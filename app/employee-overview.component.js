@@ -11,21 +11,28 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
-var HomeComponent = (function () {
-    function HomeComponent(router) {
+var EmployeeOverviewComponent = (function () {
+    function EmployeeOverviewComponent(router, activatedRoute) {
         this.router = router;
+        this.activatedRoute = activatedRoute;
     }
-    HomeComponent.prototype.GotoEmployee = function () {
-        this.router.navigate(['employees']);
+    EmployeeOverviewComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.sub = this.activatedRoute.parent.params.subscribe(function (params) {
+            _this.parentRouterId = params['id'];
+            alert('child get id: ' + _this.parentRouterId);
+        });
     };
-    HomeComponent = __decorate([
+    EmployeeOverviewComponent.prototype.ngOnDestroy = function () {
+    };
+    EmployeeOverviewComponent = __decorate([
         core_1.Component({
-            selector: 'home-component',
-            template: "\n    <h2>This is home component</h2>\n    <button (click)=\"GotoEmployee()\">Go to employees</button>\n    "
+            selector: 'employee-overview-component',
+            template: "\n    <h3>Overview employee</h3>\n    "
         }),
-        __metadata("design:paramtypes", [router_1.Router])
-    ], HomeComponent);
-    return HomeComponent;
+        __metadata("design:paramtypes", [router_1.Router, router_1.ActivatedRoute])
+    ], EmployeeOverviewComponent);
+    return EmployeeOverviewComponent;
 }());
-exports.HomeComponent = HomeComponent;
-//# sourceMappingURL=home.component.js.map
+exports.EmployeeOverviewComponent = EmployeeOverviewComponent;
+//# sourceMappingURL=employee-overview.component.js.map

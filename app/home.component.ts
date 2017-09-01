@@ -1,17 +1,18 @@
-import {Component} from '@angular/core';
-import {Router} from '@angular/router';
+import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 @Component({
-    selector:'home-component',
-    template:`<h2>This is home component</h2>
-    <button (click)="Gotoemployee()" >Go to Employeee</button>
+    selector: 'home-component',
+    template: `
+    <h2>This is home component</h2>
+    <button (click)="GotoEmployee()">Go to employees</button>
     `
 })
 export class HomeComponent{
-    //  viet cconstructorde inject router vao 
-    constructor(private router:Router){
+    constructor(private router: Router) {
 
     }
-    Gotoemployee(){
+
+    GotoEmployee(){
         this.router.navigate(['employees']);
     }
 }

@@ -7,7 +7,12 @@ import { HomeComponent } from './home.component';
 import { EmployeeService } from './services/employee.service';
 import { HttpModule } from '@angular/http';
 import { appRoutes } from './app.routes';
-import {NotFountComponent} from './notfount.component';
+import { NotFoundComponent } from './notfound.component';
+import { EmployeeDetailComponent } from './employee-detail.component'
+import { EmployeeOverviewComponent } from './employee-overview.component'
+import { EmployeeProjectsComponent } from './employee-projects.component'
+
+
 @NgModule({
   imports: [BrowserModule, FormsModule, HttpModule, appRoutes],
   declarations:
@@ -15,7 +20,11 @@ import {NotFountComponent} from './notfount.component';
     AppComponent,
     EmployeeListComponent,
     HomeComponent,
-    NotFountComponent
+    NotFoundComponent,
+    EmployeeProjectsComponent,
+    EmployeeOverviewComponent,
+    EmployeeDetailComponent,
+
   ],
   providers: [EmployeeService],
   bootstrap: [AppComponent]
