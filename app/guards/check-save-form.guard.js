@@ -7,16 +7,17 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var NotFountComponent = (function () {
-    function NotFountComponent() {
+var CheckSaveFormGuard = (function () {
+    function CheckSaveFormGuard() {
     }
-    NotFountComponent = __decorate([
-        core_1.Component({
-            selector: 'not-fount',
-            template: '<h1>Error 404</h1>',
-        })
-    ], NotFountComponent);
-    return NotFountComponent;
+    CheckSaveFormGuard.prototype.canDeactivate = function (component) {
+        alert('You can not leave this page without saving data');
+        return false;
+    };
+    CheckSaveFormGuard = __decorate([
+        core_1.Injectable()
+    ], CheckSaveFormGuard);
+    return CheckSaveFormGuard;
 }());
-exports.NotFountComponent = NotFountComponent;
-//# sourceMappingURL=notfount.component.js.map
+exports.CheckSaveFormGuard = CheckSaveFormGuard;
+//# sourceMappingURL=check-save-form.guard.js.map

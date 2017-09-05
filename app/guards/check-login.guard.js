@@ -10,28 +10,22 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var router_1 = require("@angular/router");
-var login_service_1 = require("./services/login.service");
-var LoginComponent = (function () {
-    function LoginComponent(router, loginService) {
-        this.router = router;
+var login_service_1 = require("../services/login.service");
+var CheckLoginGuard = (function () {
+    function CheckLoginGuard(loginService) {
         this.loginService = loginService;
     }
-    LoginComponent.prototype.CheckLogin = function (value) {
-        console.log(value);
-        if (value.username == "admin" && value.password == "123") {
-            this.loginService.SetLogin(true);
-            this.router.navigate(['/']);
-        }
+    CheckLoginGuard.prototype.canActivate = function () {
+        var status = this.loginService.IsLogged();
+        if (status == false)
+            alert('You don\'t have permission access to this page');
+        return status;
     };
-    LoginComponent = __decorate([
-        core_1.Component({
-            selector: 'home-component',
-            templateUrl: './app/login.component.html'
-        }),
-        __metadata("design:paramtypes", [router_1.Router, login_service_1.LoginService])
-    ], LoginComponent);
-    return LoginComponent;
+    CheckLoginGuard = __decorate([
+        core_1.Injectable(),
+        __metadata("design:paramtypes", [login_service_1.LoginService])
+    ], CheckLoginGuard);
+    return CheckLoginGuard;
 }());
-exports.LoginComponent = LoginComponent;
-//# sourceMappingURL=login.component.js.map
+exports.CheckLoginGuard = CheckLoginGuard;
+//# sourceMappingURL=check-login.guard.js.map
