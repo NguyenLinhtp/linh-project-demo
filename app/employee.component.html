@@ -1,5 +1,5 @@
 <div class="row">
-    <a [routerLink]="['/employee-add']">Add New</a>
+    <a class="btn btn-success" [routerLink]="['/employee-add']">Add New</a>
 </div>
 <table class="table">
     <thead>
@@ -18,8 +18,9 @@
             <td>{{employee.createdAt | date}}</td>
             <td>
                 <a [routerLink]="['/employee-detail',employee.id]">Show Detail</a>
-                <a [routerLink]="['/employee-edit',employee.id]">Edit</a>
-                
+                <a [routerLink]="['/employee-edit',employee.id]" class="btn btn-primary">Edit</a>
+                <button (click)="Delete(employee.id)" class="btn btn-danger">Delete</button>
+
             </td>
 
         </tr>
@@ -27,9 +28,9 @@
 </table>
 
 <nav aria-label="Page navigation example">
-        <ul class="pagination">
-            <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-            <li class="page-item" *ngFor="let page of pages"><a class="page-link" [routerLink]="['/employees']" [queryParams]="{pageNumber:page, filter:'a'}">{{page}}</a></li>
-            <li class="page-item"><a class="page-link" href="#">Next</a></li>
-        </ul>
-    </nav>
+    <ul class="pagination">
+        <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+        <li class="page-item" *ngFor="let page of pages"><a class="page-link" [routerLink]="['/employees']" [queryParams]="{pageNumber:page, filter:'a'}">{{page}}</a></li>
+        <li class="page-item"><a class="page-link" href="#">Next</a></li>
+    </ul>
+</nav>

@@ -29,6 +29,9 @@ var EmployeeService = (function () {
     EmployeeService.prototype.Add = function (data) {
         return this._http.post(this.apiUrl, data).map(function (response) { return response.json(); });
     };
+    EmployeeService.prototype.Delete = function (id) {
+        return this._http.delete(this.apiUrl + id).map(function (response) { return response.json(); });
+    };
     EmployeeService = __decorate([
         core_1.Injectable(),
         __metadata("design:paramtypes", [http_1.Http])
