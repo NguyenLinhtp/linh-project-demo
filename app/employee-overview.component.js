@@ -20,7 +20,7 @@ var EmployeeOverviewComponent = (function () {
         var _this = this;
         this.sub = this.activatedRoute.parent.params.subscribe(function (params) {
             _this.parentRouterId = params['id'];
-            alert('child get id: ' + _this.parentRouterId);
+            //alert('child get id: ' + this.parentRouterId);
         });
     };
     EmployeeOverviewComponent.prototype.ngOnDestroy = function () {
